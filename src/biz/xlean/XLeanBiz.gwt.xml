@@ -12,6 +12,7 @@
   <!-- <inherits name='com.google.gwt.user.theme.dark.Dark'/>     -->
 
   <!-- Other module inherits                                      -->
+  <inherits name="com.startupstages.StartupStages"/> 
 
   <!-- Specify the app entry point class.                         -->
   <entry-point class='biz.xlean.client.GWTEntryPoint'/>
