@@ -16,6 +16,26 @@
     <url-pattern>/xleanbiz/topics</url-pattern>
   </servlet-mapping>  
   
+  	<servlet>
+		<servlet-name>authenticationServlet</servlet-name>
+		<servlet-class>me.unoid.server.LoginServiceImpl</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>authenticationServlet</servlet-name>
+		<url-pattern>/xleanbiz/authentication</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>unoIDServlet</servlet-name>
+		<servlet-class>me.unoid.server.unouser.UnoIDServiceImpl</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>unoIDServlet</servlet-name>
+		<url-pattern>/xleanbiz/unoID</url-pattern>
+	</servlet-mapping>
+  
   <!-- Default page to serve -->
   <welcome-file-list>
     <welcome-file>XLeanBiz.html</welcome-file>

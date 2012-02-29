@@ -1,6 +1,16 @@
 package biz.xlean.client;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import me.unoid.client.Utilities.EncryptText;
+import me.unoid.client.login.facebook.FacebookLoginVerifyer;
+
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.json.client.JSONObject;
+import com.google.gwt.json.client.JSONParser;
+import com.google.gwt.user.client.Cookies;
+import com.google.gwt.user.client.Window.Location;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.startupstages.client.StartupStagesGlobalVariables;
 import com.startupstages.client.blog.BlogPanel;
@@ -11,12 +21,43 @@ import com.startupstages.client.blog.steps.Ideation;
  */
 public class GWTEntryPoint implements EntryPoint {
 
-	public static AboutXLean aboutXlean = new AboutXLean();
+	private static Logger logger = Logger.getLogger("UnoIDMe");
 
 	/**
 	 * This is the entry point method.
 	 */
 	public void onModuleLoad() {
+
+		// Cookies.setCookie("UnoUser",
+		 //EncryptText.encrypt(UnoUserTest.unoUserJsonString()));
+
+		String unoUser = EncryptText.decrypt(Cookies.getCookie("UnoUser"));
+
+		logger.log(Level.INFO, "unoUser2=" + unoUser + "unoUser2");
+
+		if (unoUser == null || unoUser.equals("null")) {
+
+			final String authenticationCode = Location.getParameter("code");
+			
+			logger.log(Level.INFO, "code=" + authenticationCode);
+
+			final String error = Location.getParameter("error_reason");
+
+			if (!((null != error && error.equals("user_denied")) || (authenticationCode == null || ""
+					.equals(authenticationCode)))) {
+				
+				logger.log(Level.INFO, "authenticate");
+
+				FacebookLoginVerifyer.authenticate(authenticationCode);
+			}
+
+		} else {
+
+			JSONObject obj = (JSONObject) JSONParser.parseStrict(unoUser);
+			XLeanBizGlobalVariables.unoUser = obj;
+
+			// GetUnoUser.get(unoUser);
+		}
 
 		RootPanel.get().add(new Home());
 
@@ -27,7 +68,10 @@ public class GWTEntryPoint implements EntryPoint {
 
 		Ideation.initializeIdeationPanel();
 
-		aboutXlean.center();
-		aboutXlean.show();
+		if (unoUser == null || unoUser.equals("null")) {
+			// aboutXlean.center();
+			XLeanBizGlobalVariables.aboutXlean.show();
+		}
+
 	}
 }

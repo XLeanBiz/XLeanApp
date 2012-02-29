@@ -6,7 +6,7 @@ public class FacebookFeedbackButton extends HTML {
 
 	public FacebookFeedbackButton() {
 
-		this.setHTML("<a href='http://www.facebook.com/pages/LiveSource/228227930604281' target='_blank'>"
+		this.setHTML("<a href='http://www.facebook.com/pages/Xtreme-Lean-Business/330997440275370' target='_blank'>"
 				+ "<img src='images/FeedbackFacebook.png' ></a>");
 	}
 }
