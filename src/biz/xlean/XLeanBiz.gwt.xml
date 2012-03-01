@@ -16,7 +16,7 @@
   <inherits name="com.startupstages.StartupStages"/> 
   <inherits name="com.google.gwt.json.JSON" />
   <inherits name='com.googlecode.gwt.crypto.Crypto' />
-  <inherits name="com.google.gwt.logging.Logging"/>
+  <!-- inherits name="com.google.gwt.logging.Logging"/-->
 
   <!-- Specify the app entry point class.                         -->
   <entry-point class='biz.xlean.client.GWTEntryPoint'/>

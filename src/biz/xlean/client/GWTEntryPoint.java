@@ -1,6 +1,5 @@
 package biz.xlean.client;
 
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import me.unoid.client.Utilities.EncryptText;
@@ -29,24 +28,18 @@ public class GWTEntryPoint implements EntryPoint {
 	public void onModuleLoad() {
 
 		// Cookies.setCookie("UnoUser",
-		 //EncryptText.encrypt(UnoUserTest.unoUserJsonString()));
+		// EncryptText.encrypt(UnoUserTest.unoUserJsonString()));
 
 		String unoUser = EncryptText.decrypt(Cookies.getCookie("UnoUser"));
-
-		logger.log(Level.INFO, "unoUser2=" + unoUser + "unoUser2");
 
 		if (unoUser == null || unoUser.equals("null")) {
 
 			final String authenticationCode = Location.getParameter("code");
-			
-			logger.log(Level.INFO, "code=" + authenticationCode);
 
 			final String error = Location.getParameter("error_reason");
 
 			if (!((null != error && error.equals("user_denied")) || (authenticationCode == null || ""
 					.equals(authenticationCode)))) {
-				
-				logger.log(Level.INFO, "authenticate");
 
 				FacebookLoginVerifyer.authenticate(authenticationCode);
 			}
