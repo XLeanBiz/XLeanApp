@@ -21,7 +21,7 @@ public class Header extends HorizontalPanel {
 		this.add(new XLeanBizLogo());
 
 		Label space = new Label(" ");
-		space.setWidth("500px");
+		space.setWidth("600px");
 		this.add(space);
 
 		if (XLeanBizGlobalVariables.unoUser == null) {

@@ -5,15 +5,12 @@ import biz.xlean.client.header.Header;
 
 import com.google.gwt.user.client.ui.RootPanel;
 import com.startupstages.client.InitializeBlog;
-import com.startupstages.client.StartupStagesGlobalVariables;
 
 public class InitializeXLeanBiz {
 
 	public InitializeXLeanBiz(String unoUser) {
 
 		RootPanel.get().add(new Home());
-
-		StartupStagesGlobalVariables.startTopics();
 
 		if (unoUser == null || unoUser.equals("null")) {
 
