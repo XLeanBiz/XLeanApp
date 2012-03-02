@@ -10,8 +10,6 @@ import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.json.client.JSONParser;
 import com.google.gwt.user.client.Cookies;
 import com.google.gwt.user.client.Window.Location;
-import com.google.gwt.user.client.ui.RootPanel;
-import com.startupstages.client.InitializeBlog;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -50,14 +48,6 @@ public class GWTEntryPoint implements EntryPoint {
 			// GetUnoUser.get(unoUser);
 		}
 
-		RootPanel.get().add(new Home());
-
-		Home.vpMain.clear();
-		Home.vpMain.add(new InitializeBlog());
-
-		if (unoUser == null || unoUser.equals("null")) {
-			// aboutXlean.center();
-			XLeanBizGlobalVariables.aboutXlean.show();
-		}
+		new InitializeXLeanBiz(unoUser);
 	}
 }
