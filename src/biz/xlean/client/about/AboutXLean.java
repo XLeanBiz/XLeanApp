@@ -1,7 +1,7 @@
 package biz.xlean.client.about;
 
 import biz.xlean.client.Home;
-import biz.xlean.client.utilities.MixPanelTracking;
+import biz.xlean.client.utilities.UseTracking;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -14,7 +14,7 @@ public class AboutXLean extends AbsolutePanel {
 
 	public AboutXLean() {
 
-		new MixPanelTracking("biz.xlean.client.about.AboutXLean");
+		new UseTracking("biz.xlean.client.about.AboutXLean");
 
 		this.setSize("900px", "750px");
 
@@ -23,13 +23,13 @@ public class AboutXLean extends AbsolutePanel {
 
 		Image image_1 = new Image("images/InteractiveBlog.jpg");
 		image_1.setSize("146px", "139px");
-		image_1.addClickHandler(getBlogClickHandler());
+		image_1.addClickHandler(getBlogClickHandler("BlogImage"));
 		this.add(image_1, 44, 265);
 
 		HTML htmlLearnEverythingAbout = new HTML(
 				"Learn everything about <br>Customer Development <br>and Lean Startups in our <br> interactive Blog.",
 				true);
-		htmlLearnEverythingAbout.addClickHandler(getBlogClickHandler());
+		htmlLearnEverythingAbout.addClickHandler(getBlogClickHandler("BlogText"));
 		this.add(htmlLearnEverythingAbout, 54, 415);
 
 		Image image_2 = new Image("images/feedbackOrganizer.jpg");
@@ -53,15 +53,18 @@ public class AboutXLean extends AbsolutePanel {
 		this.add(htmlStartupMetricsAnd, 567, 415);
 
 		Image image_4 = new Image("images/tryItNow.jpg");
-		image_4.addClickHandler(getBlogClickHandler());
+		image_4.addClickHandler(getBlogClickHandler("TryItNowButton"));
 		this.add(image_4, 293, 549);
 
 	}
 
-	private ClickHandler getBlogClickHandler() {
+	private ClickHandler getBlogClickHandler(final String clickOriginator) {
 
 		ClickHandler clickHandler = new ClickHandler() {
 			public void onClick(ClickEvent event) {
+
+				new UseTracking("biz.xlean.client.about.AboutXLean#"
+						+ clickOriginator);
 
 				Home.vpMain.clear();
 				Home.vpMain.add(new BlogIntroduction(new ButtonStartBlog()));
@@ -76,6 +79,8 @@ public class AboutXLean extends AbsolutePanel {
 		ClickHandler clickHandler = new ClickHandler() {
 			public void onClick(ClickEvent event) {
 
+				new UseTracking(
+						"biz.xlean.client.about.AboutXLean#FeedbackImage");
 			}
 		};
 
@@ -87,6 +92,8 @@ public class AboutXLean extends AbsolutePanel {
 		ClickHandler clickHandler = new ClickHandler() {
 			public void onClick(ClickEvent event) {
 
+				new UseTracking(
+						"biz.xlean.client.about.AboutXLean#MetricsImage");
 			}
 		};
 
