@@ -1,9 +1,9 @@
 package biz.xlean.client.header;
 
+import me.unoid.client.UnoIDGlobalVariables;
 import me.unoid.client.login.AnchorLogout;
 import me.unoid.client.login.facebook.LoginWithFacebookButton;
 import me.unoid.client.me.MyPhoto;
-import biz.xlean.client.XLeanBizGlobalVariables;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -13,6 +13,8 @@ import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
 
 public class Header extends HorizontalPanel {
+	
+	public static HorizontalPanel hpLoginButton = new HorizontalPanel();
 
 	public Header() {
 
@@ -23,28 +25,31 @@ public class Header extends HorizontalPanel {
 		Label space = new Label(" ");
 		space.setWidth("600px");
 		this.add(space);
+		
+		hpLoginButton.clear();
+		this.add(hpLoginButton);
 
-		if (XLeanBizGlobalVariables.unoUser == null) {
+		if (UnoIDGlobalVariables.unoUser == null) {
 
-			this.add(new LoginWithFacebookButton());
+			hpLoginButton.add(new LoginWithFacebookButton());
 		} else {
 
-			this.add(getUserPhoto(XLeanBizGlobalVariables.unoUser));
+			hpLoginButton.add(getUserPhoto(UnoIDGlobalVariables.unoUser));
 		}
 
 		Label space2 = new Label(" ");
-		space2.setWidth("50px");
+		space2.setWidth("250px");
 		this.add(space2);
 
 		this.add(new FacebookFeedbackButton());
 
-		if (XLeanBizGlobalVariables.unoUser != null) {
+		if (UnoIDGlobalVariables.unoUser != null) {
 			
 			Label space3 = new Label(" ");
 			space3.setWidth("50px");
-			this.add(space3);
+			hpLoginButton.add(space3);
 
-			this.add(new AnchorLogout());
+			hpLoginButton.add(new AnchorLogout());
 		}
 	}
 
