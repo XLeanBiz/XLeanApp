@@ -26,6 +26,7 @@ public class Header extends HorizontalPanel {
 		space.setWidth("600px");
 		this.add(space);
 		
+		hpLoginButton.setVerticalAlignment(HasVerticalAlignment.ALIGN_MIDDLE);
 		hpLoginButton.clear();
 		this.add(hpLoginButton);
 

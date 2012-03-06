@@ -2,10 +2,13 @@ package biz.xlean.client;
 
 import java.util.logging.Logger;
 
+import me.unoid.client.UnoIDGlobalVariables;
 import me.unoid.client.Utilities.EncryptText;
 import me.unoid.client.login.facebook.FacebookLoginVerifyer;
 
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.json.client.JSONObject;
+import com.google.gwt.json.client.JSONParser;
 import com.google.gwt.user.client.Cookies;
 import com.google.gwt.user.client.Window.Location;
 
@@ -37,6 +40,12 @@ public class GWTEntryPoint implements EntryPoint {
 
 				FacebookLoginVerifyer.authenticate(authenticationCode);
 			}
+		} else {
+			
+			JSONObject obj = (JSONObject) JSONParser
+					.parseStrict(unoUser);
+
+			UnoIDGlobalVariables.unoUser = obj;
 		}
 
 		new InitializeXLeanBiz(unoUser);
