@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 import me.unoid.client.UnoIDGlobalVariables;
 import me.unoid.client.Utilities.EncryptText;
 import me.unoid.client.login.facebook.FacebookLoginVerifyer;
+import biz.xlean.client.header.Header;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.json.client.JSONObject;
@@ -31,6 +32,8 @@ public class GWTEntryPoint implements EntryPoint {
 
 		if (unoUser == null || unoUser.equals("null")) {
 
+			new InitializeXLeanBiz(unoUser);
+
 			final String authenticationCode = Location.getParameter("code");
 
 			final String error = Location.getParameter("error_reason");
@@ -38,16 +41,17 @@ public class GWTEntryPoint implements EntryPoint {
 			if (!((null != error && error.equals("user_denied")) || (authenticationCode == null || ""
 					.equals(authenticationCode)))) {
 
-				FacebookLoginVerifyer.authenticate(authenticationCode);
+				FacebookLoginVerifyer.authenticate(authenticationCode,
+						Header.hpLoginButton);
 			}
 		} else {
-			
-			JSONObject obj = (JSONObject) JSONParser
-					.parseStrict(unoUser);
+
+			JSONObject obj = (JSONObject) JSONParser.parseStrict(unoUser);
 
 			UnoIDGlobalVariables.unoUser = obj;
+
+			new InitializeXLeanBiz(unoUser);
 		}
 
-		new InitializeXLeanBiz(unoUser);
 	}
 }
