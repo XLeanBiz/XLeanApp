@@ -8,11 +8,11 @@ import com.startupstages.client.InitializeBlog;
 
 public class InitializeXLeanBiz {
 
-	public InitializeXLeanBiz(String unoUser) {
+	public InitializeXLeanBiz(boolean openIntroduction) {
 
 		RootPanel.get().add(new Home());
 
-		if (unoUser == null || unoUser.equals("null")) {
+		if (openIntroduction) {
 
 			Home.vpMain.clear();
 			Home.vpMain.add(new AboutXLean());
