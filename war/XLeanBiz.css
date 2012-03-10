@@ -33,10 +33,10 @@ h1 {
   margin: 15px 6px 6px;
 }
 
-.stagePanel {
+.backgroundColorGray {
 	background-color: #f5f5f5;
 }
 
-.stepsPanel {
+.backgroundColorWhite {
 	background-color: white;
 }

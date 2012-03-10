@@ -10,6 +10,7 @@ public class InitializeXLeanBiz {
 
 	public InitializeXLeanBiz(boolean openIntroduction) {
 
+		RootPanel.get().clear();
 		RootPanel.get().add(new Home());
 
 		if (openIntroduction) {
