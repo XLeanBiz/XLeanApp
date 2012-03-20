@@ -12,7 +12,7 @@
   <!-- <inherits name='com.google.gwt.user.theme.dark.Dark'/>     -->
 
   <!-- Other module inherits                                      -->
-  <inherits name="me.unoid.UnoID"/> 
+  <inherits name="co.uniqueid.authentication.Authentication"/> 
   <inherits name="com.startupstages.StartupStages"/> 
   <inherits name="com.google.gwt.json.JSON" />
   <inherits name='com.googlecode.gwt.crypto.Crypto' />

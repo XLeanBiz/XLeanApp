@@ -15,7 +15,7 @@ public class Header extends HorizontalPanel {
 		this.add(new XLeanBizLogo());
 
 		Label space = new Label(" ");
-		space.setWidth("600px");
+		space.setWidth("500px");
 		this.add(space);
 
 		this.add(FacebookLoginPanel.hpFacebookLogin);
@@ -28,7 +28,7 @@ public class Header extends HorizontalPanel {
 		this.add(new BlogIcon());
 		
 		Label space3 = new Label(" ");
-		space3.setWidth("10px");
+		space3.setWidth("30px");
 		this.add(space3);
 
 		this.add(new FacebookFeedbackButton());

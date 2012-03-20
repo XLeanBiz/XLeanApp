@@ -1,44 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
               http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-         version="2.5"
-         xmlns="http://java.sun.com/xml/ns/javaee">
+	version="2.5" xmlns="http://java.sun.com/xml/ns/javaee">
 
-  <!-- Servlets -->
-  <servlet>
-    <servlet-name>topicsServlet</servlet-name>
-    <servlet-class>com.startupstages.server.topics.TopicsServiceImpl</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-    <servlet-name>topicsServlet</servlet-name>
-    <url-pattern>/xleanbiz/topics</url-pattern>
-  </servlet-mapping>  
-  
-  	<servlet>
+	<!-- Servlets -->
+	<servlet>
+		<servlet-name>topicsServlet</servlet-name>
+		<servlet-class>com.startupstages.server.topics.TopicsServiceImpl</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>topicsServlet</servlet-name>
+		<url-pattern>/xleanbiz/topics</url-pattern>
+	</servlet-mapping>
+
+
+
+	<servlet>
 		<servlet-name>authenticationServlet</servlet-name>
-		<servlet-class>me.unoid.server.LoginServiceImpl</servlet-class>
+		<servlet-class>co.uniqueid.authentication.server.LoginServiceImpl</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>authenticationServlet</servlet-name>
 		<url-pattern>/xleanbiz/authentication</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
-		<servlet-name>unoIDServlet</servlet-name>
-		<servlet-class>me.unoid.server.unouser.UnoIDServiceImpl</servlet-class>
+		<servlet-name>uniqueIDServlet</servlet-name>
+		<servlet-class>co.uniqueid.authentication.server.uniqueID.UniqueIDServiceImpl</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>unoIDServlet</servlet-name>
-		<url-pattern>/xleanbiz/unoID</url-pattern>
+		<servlet-name>uniqueIDServlet</servlet-name>
+		<url-pattern>/xleanbiz/uniqueID</url-pattern>
 	</servlet-mapping>
-  
-  <!-- Default page to serve -->
-  <welcome-file-list>
-    <welcome-file>XLeanBiz.html</welcome-file>
-  </welcome-file-list>
+
+
+	<!-- Default page to serve -->
+	<welcome-file-list>
+		<welcome-file>XLeanBiz.html</welcome-file>
+	</welcome-file-list>
 
 </web-app>
