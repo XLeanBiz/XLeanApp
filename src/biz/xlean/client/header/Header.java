@@ -1,6 +1,6 @@
 package biz.xlean.client.header;
 
-import me.unoid.client.login.facebook.FacebookLoginPanel;
+import co.uniqueid.authentication.client.login.facebook.FacebookLoginPanel;
 
 import com.google.gwt.user.client.ui.HasVerticalAlignment;
 import com.google.gwt.user.client.ui.HorizontalPanel;
@@ -22,8 +22,14 @@ public class Header extends HorizontalPanel {
 		FacebookLoginPanel.setPanel();
 
 		Label space2 = new Label(" ");
-		space2.setWidth("250px");
+		space2.setWidth("200px");
 		this.add(space2);
+
+		this.add(new BlogIcon());
+		
+		Label space3 = new Label(" ");
+		space3.setWidth("10px");
+		this.add(space3);
 
 		this.add(new FacebookFeedbackButton());
 	}

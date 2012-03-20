@@ -21,15 +21,17 @@ public class AboutXLean extends AbsolutePanel {
 		Image image = new Image("images/eXtremeLeanBusiness.jpg");
 		this.add(image, 229, 0);
 
-		Image image_1 = new Image("images/InteractiveBlog.jpg");
-		image_1.setSize("146px", "139px");
+		HTML image_1 = new HTML(
+				"<a href=#><img src='images/InteractiveGuide.jpg' width=146 height=139 border=0></a>");
 		image_1.addClickHandler(getBlogClickHandler("BlogImage"));
 		this.add(image_1, 44, 265);
 
-		HTML htmlLearnEverythingAbout = new HTML(
-				"Learn everything about <br>Customer Development <br>and Lean Startups in our <br> interactive Blog.",
+		HTML htmlLearnEverythingAbout = new HTML("<a href=#>"
+				+ "Follow all the information  <br> about Customer Development "
+				+ "<br>and Lean Startups in our <br> interactive Guide.</a>",
 				true);
-		htmlLearnEverythingAbout.addClickHandler(getBlogClickHandler("BlogText"));
+		htmlLearnEverythingAbout
+				.addClickHandler(getBlogClickHandler("BlogText"));
 		this.add(htmlLearnEverythingAbout, 54, 415);
 
 		Image image_2 = new Image("images/feedbackOrganizer.jpg");
@@ -37,7 +39,9 @@ public class AboutXLean extends AbsolutePanel {
 		this.add(image_2, 306, 265);
 
 		HTML htmlFeedbackIsKey = new HTML(
-				"Feedback is key for <br>Customer Development.<br> We help you extremely <br>collect and organize it!",
+				"Feedback is key for <br>Customer Development.<br> " +
+				"We will tell you all the thuth" +
+				" <br>about your product <br> and your company.",
 				true);
 		htmlFeedbackIsKey.addClickHandler(getFeedbackClickHandler());
 		this.add(htmlFeedbackIsKey, 327, 415);
@@ -52,7 +56,7 @@ public class AboutXLean extends AbsolutePanel {
 		htmlStartupMetricsAnd.addClickHandler(getMetricsClickHandler());
 		this.add(htmlStartupMetricsAnd, 567, 415);
 
-		Image image_4 = new Image("images/tryItNow.jpg");
+		HTML image_4 = new HTML("<a href=#><img src='images/tryItNow.jpg' border=0></a>");
 		image_4.addClickHandler(getBlogClickHandler("TryItNowButton"));
 		this.add(image_4, 293, 549);
 
