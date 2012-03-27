@@ -3,7 +3,6 @@ package biz.xlean.client;
 import java.util.logging.Logger;
 
 import co.uniqueid.authentication.client.UniqueIDGlobalVariables;
-import co.uniqueid.authentication.client.login.facebook.FacebookLoginVerifyer;
 import co.uniqueid.authentication.client.utilities.EncryptText;
 
 import com.google.gwt.core.client.EntryPoint;
@@ -17,16 +16,16 @@ import com.google.gwt.user.client.Window.Location;
  */
 public class GWTEntryPoint implements EntryPoint {
 
-	private static Logger logger = Logger.getLogger("UnoIDMe");
+	private static Logger logger = Logger.getLogger("XLeanBiz");
 
 	/**
 	 * This is the entry point method.
 	 */
 	public void onModuleLoad() {
 
-		String unoUser = EncryptText.decrypt(Cookies.getCookie("UnoUser"));
+		String uniqueID = EncryptText.decrypt(Cookies.getCookie("UniqueID"));
 
-		if (unoUser == null || unoUser.equals("null")) {
+		if (uniqueID == null || uniqueID.equals("null")) {
 
 			final String authenticationCode = Location.getParameter("code");
 
@@ -37,14 +36,14 @@ public class GWTEntryPoint implements EntryPoint {
 
 				new InitializeXLeanBiz(false);
 
-				FacebookLoginVerifyer.authenticate(authenticationCode);
+				InitializeXLeanBiz.VerifyFacebookLogin(authenticationCode);
 			} else {
 
 				new InitializeXLeanBiz(true);
 			}
 		} else {
 
-			JSONObject obj = (JSONObject) JSONParser.parseStrict(unoUser);
+			JSONObject obj = (JSONObject) JSONParser.parseStrict(uniqueID);
 
 			UniqueIDGlobalVariables.uniqueID = obj;
 

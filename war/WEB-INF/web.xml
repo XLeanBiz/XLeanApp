@@ -15,7 +15,15 @@
 		<url-pattern>/xleanbiz/topics</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>commentsServlet</servlet-name>
+		<servlet-class>com.startupstages.server.comments.CommentsServiceImpl</servlet-class>
+	</servlet>
 
+	<servlet-mapping>
+		<servlet-name>commentsServlet</servlet-name>
+		<url-pattern>/xleanbiz/comments</url-pattern>
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>authenticationServlet</servlet-name>

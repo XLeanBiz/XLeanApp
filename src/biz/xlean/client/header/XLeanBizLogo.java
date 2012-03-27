@@ -19,6 +19,8 @@ public class XLeanBizLogo extends Image {
 
 			@Override
 			public void onClick(ClickEvent event) {
+				
+				Home.vpHeader.clear();
 
 				Home.vpMain.clear();
 				Home.vpMain.add(new AboutXLean());

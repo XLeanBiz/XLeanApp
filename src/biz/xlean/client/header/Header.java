@@ -1,5 +1,6 @@
 package biz.xlean.client.header;
 
+import biz.xlean.client.InitializeXLeanBiz;
 import co.uniqueid.authentication.client.login.facebook.FacebookLoginPanel;
 
 import com.google.gwt.user.client.ui.HasVerticalAlignment;
@@ -19,14 +20,14 @@ public class Header extends HorizontalPanel {
 		this.add(space);
 
 		this.add(FacebookLoginPanel.hpFacebookLogin);
-		FacebookLoginPanel.setPanel();
+		InitializeXLeanBiz.InitializeFacebookLogin();
 
 		Label space2 = new Label(" ");
 		space2.setWidth("200px");
 		this.add(space2);
 
 		this.add(new BlogIcon());
-		
+
 		Label space3 = new Label(" ");
 		space3.setWidth("30px");
 		this.add(space3);
