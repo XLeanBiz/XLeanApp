@@ -11,7 +11,7 @@ public class ButtonTryItNow extends HTML {
 
 	public ButtonTryItNow() {
 
-		this.setHTML("<a href=#><img src='images/tryItNow.jpg' border=0></a>");
+		this.setHTML("<a href=#><img src='images/StartHere.jpg' width='150px' border=0></a>");
 		this.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
 
