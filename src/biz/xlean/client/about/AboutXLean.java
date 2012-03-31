@@ -12,7 +12,7 @@ public class AboutXLean extends AbsolutePanel {
 
 	public AboutXLean() {
 
-		new UseTracking("biz.xlean.client.about.AboutXLean");
+		new UseTracking(this.getClass().getName());
 
 		this.setSize("900px", "750px");
 

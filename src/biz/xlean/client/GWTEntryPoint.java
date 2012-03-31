@@ -2,6 +2,7 @@ package biz.xlean.client;
 
 import java.util.logging.Logger;
 
+import biz.xlean.client.utilities.UseTracking;
 import co.uniqueid.authentication.client.UniqueIDGlobalVariables;
 import co.uniqueid.authentication.client.utilities.EncryptText;
 
@@ -22,6 +23,8 @@ public class GWTEntryPoint implements EntryPoint {
 	 * This is the entry point method.
 	 */
 	public void onModuleLoad() {
+		
+		new UseTracking(this.getClass().getName());
 
 		String uniqueID = EncryptText.decrypt(Cookies.getCookie("UniqueID"));
 
