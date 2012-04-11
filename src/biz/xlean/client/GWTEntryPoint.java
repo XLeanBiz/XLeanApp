@@ -27,6 +27,8 @@ public class GWTEntryPoint implements EntryPoint {
 		new UseTracking(this.getClass().getName());
 
 		String uniqueID = EncryptText.decrypt(Cookies.getCookie("UniqueID"));
+		
+		final String topic = Location.getParameter("topic");
 
 		if (uniqueID == null || uniqueID.equals("null")) {
 
@@ -37,12 +39,12 @@ public class GWTEntryPoint implements EntryPoint {
 			if (!((null != error && error.equals("user_denied")) || (authenticationCode == null || ""
 					.equals(authenticationCode)))) {
 
-				new InitializeXLeanBiz(false);
+				new InitializeXLeanBiz(false, topic);
 
 				InitializeXLeanBiz.VerifyFacebookLogin(authenticationCode);
 			} else {
 
-				new InitializeXLeanBiz(true);
+				new InitializeXLeanBiz(true, topic);
 			}
 		} else {
 
@@ -50,7 +52,7 @@ public class GWTEntryPoint implements EntryPoint {
 
 			UniqueIDGlobalVariables.uniqueID = obj;
 
-			new InitializeXLeanBiz(false);
+			new InitializeXLeanBiz(false, topic);
 		}
 
 	}

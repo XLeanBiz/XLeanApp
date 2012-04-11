@@ -14,28 +14,28 @@ public class InitializeXLeanBiz {
 	private static final String REDIRECT_URL = "http://www.xlean.biz/";
 	private static final String xleanbizFacebookID = "326884367376395";
 
-	public InitializeXLeanBiz(boolean openIntroduction) {
+	public InitializeXLeanBiz(final boolean openIntroduction, final String topic) {
 
 		RootPanel.get().clear();
 		RootPanel.get().add(new Home());
 
-		if (openIntroduction) {
+		if (openIntroduction && topic == null) {
 
 			Home.vpMain.clear();
 			Home.vpMain.add(new AboutXLean());
 		} else {
 
-			openBlog();
+			openBlog(topic);
 		}
 	}
 
-	public static void openBlog() {
+	public static void openBlog(String topic) {
 
 		Home.vpHeader.clear();
 		Home.vpHeader.add(new Header());
 
 		Home.vpMain.clear();
-		Home.vpMain.add(new InitializeBlog());
+		Home.vpMain.add(new InitializeBlog(topic));
 	}
 
 	public static void InitializeFacebookLogin() {

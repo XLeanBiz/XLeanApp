@@ -26,10 +26,10 @@ public class AboutXLean extends AbsolutePanel {
 
 		HTML htmlLearnEverythingAbout = new HTML(
 				"Follow all the information<br>about Customer Development "
-						+ "<br>and Lean Startups.<br>" +
-						" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; " +
-						"<a href='http://xleanbiz.wordpress.com/2012/03/23/what-stage-are-you/'" +
-						" target='_blank'>KNOW MORE</a>", true);
+						+ "<br>and Lean Startups.<br>"
+						+ " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "
+						+ "<a href='http://xleanbiz.wordpress.com/2012/03/23/what-stage-are-you/'"
+						+ " target='_blank'>KNOW MORE</a>", true);
 		this.add(htmlLearnEverythingAbout, 54, 360);
 
 		Image image_2 = new Image("images/feedbackOrganizer.jpg");
@@ -39,7 +39,7 @@ public class AboutXLean extends AbsolutePanel {
 		HTML htmlFeedbackIsKey = new HTML(
 				"Feedback is key for <br>Customer Development.<br> "
 						+ "We will tell you the thuth"
-						+ "<br>about your product.",
+						+ "<br>about your product." + "<br> &nbsp; * Coming Soon *",
 				true);
 		htmlFeedbackIsKey.addClickHandler(getFeedbackClickHandler());
 		this.add(htmlFeedbackIsKey, 327, 360);
@@ -49,8 +49,9 @@ public class AboutXLean extends AbsolutePanel {
 		this.add(image_3, 555, 173);
 
 		HTML htmlStartupMetricsAnd = new HTML(
-				"Metrics Matter!<br> We compare you to<br> others. You look better <br>than you think!",
-				true);
+				"Metrics Matter!<br> We compare you to<br> others. "
+						+ "You look better <br>than you think!"
+						+ "<br> &nbsp; * Coming Soon *", true);
 		htmlStartupMetricsAnd.addClickHandler(getMetricsClickHandler());
 		this.add(htmlStartupMetricsAnd, 567, 360);
 
