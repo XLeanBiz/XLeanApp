@@ -17,7 +17,7 @@ public class InitializeXLeanBiz {
 	public InitializeXLeanBiz(final boolean openIntroduction, final String topic) {
 
 		RootPanel.get().clear();
-		RootPanel.get().add(new Home());
+		RootPanel.get().add(new Home(), 0, 0);
 
 		if (openIntroduction && topic == null) {
 

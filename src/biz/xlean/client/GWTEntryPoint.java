@@ -1,7 +1,6 @@
 package biz.xlean.client;
 
-import java.util.logging.Logger;
-
+import biz.xlean.client.companies.ListCompanies;
 import biz.xlean.client.utilities.UseTracking;
 import co.uniqueid.authentication.client.UniqueIDGlobalVariables;
 import co.uniqueid.authentication.client.utilities.EncryptText;
@@ -17,20 +16,24 @@ import com.google.gwt.user.client.Window.Location;
  */
 public class GWTEntryPoint implements EntryPoint {
 
-	private static Logger logger = Logger.getLogger("XLeanBiz");
+	// private static Logger logger = Logger.getLogger("XLeanBiz");
 
 	/**
 	 * This is the entry point method.
 	 */
 	public void onModuleLoad() {
-		
+
 		new UseTracking(this.getClass().getName());
 
-		String uniqueID = EncryptText.decrypt(Cookies.getCookie("UniqueID"));
-		
+		String uniqueIDJsonString = EncryptText.decrypt(Cookies
+				.getCookie("UniqueID"));
+
+		//uniqueIDJsonString = userTest();
+		// logger.log(Level.INFO, "uniqueIDJsonString=" + uniqueIDJsonString);
+
 		final String topic = Location.getParameter("topic");
 
-		if (uniqueID == null || uniqueID.equals("null")) {
+		if (uniqueIDJsonString == null || uniqueIDJsonString.equals("null")) {
 
 			final String authenticationCode = Location.getParameter("code");
 
@@ -48,12 +51,27 @@ public class GWTEntryPoint implements EntryPoint {
 			}
 		} else {
 
-			JSONObject obj = (JSONObject) JSONParser.parseStrict(uniqueID);
+			JSONObject obj = (JSONObject) JSONParser
+					.parseStrict(uniqueIDJsonString);
 
 			UniqueIDGlobalVariables.uniqueID = obj;
 
 			new InitializeXLeanBiz(false, topic);
+
+			ListCompanies.list(obj);
 		}
+
+	}
+
+	private String userTest() {
+
+		return "{\"ID\":\"AllineWatkins_1332886062783\","
+				+ "\"image\":\"http://m3.licdn.com/mpr/mpr/shrink_100_100/p/3/000/047/3d0/26e9188.jpg\","
+				+ "\"entityName\":\"Alline Watkins\","
+				+ "\"first_name\":\"Alline\","
+				+ "\"email\":\"alline.oliveira@gmail.com\","
+				+ "\"gender\":\"female\"," + "\"facebook_id\":\"537675235\","
+				+ "\"githubLogin\":\"allineo\"}";
 
 	}
 }

@@ -46,6 +46,17 @@
 	</servlet-mapping>
 
 
+	<servlet>
+		<servlet-name>uniqueIDAPIServlet</servlet-name>
+		<servlet-class>biz.xlean.server.UniqueIDServiceImpl</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>uniqueIDAPIServlet</servlet-name>
+		<url-pattern>/xleanbiz/uniqueID_API</url-pattern>
+	</servlet-mapping>
+
+
 	<!-- Default page to serve -->
 	<welcome-file-list>
 		<welcome-file>XLeanBiz.html</welcome-file>
