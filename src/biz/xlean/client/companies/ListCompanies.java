@@ -8,7 +8,7 @@ import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.json.client.JSONParser;
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.startupdata.client.StartupDataGlobalVariables;
+import com.startupdata.client.StartupData;
 
 public class ListCompanies {
 
@@ -41,8 +41,7 @@ public class ListCompanies {
 
 				JSONObject companyJson = (JSONObject) jsonArray.get(0);
 
-				StartupDataGlobalVariables.companyID = ConvertJson
-						.getStringValue(companyJson, "ID");
+				StartupData.company = companyJson;
 
 				Header.vpCompanies.clear();
 				Header.vpCompanies.add(new CompanyIcon(companyJson));

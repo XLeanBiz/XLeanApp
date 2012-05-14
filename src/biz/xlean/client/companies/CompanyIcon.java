@@ -40,7 +40,7 @@ public class CompanyIcon extends HTML {
 
 	public static void chooseCompany(final JSONObject companyJson) {
 
-		StartupData.init(ConvertJson.getStringValue(companyJson, "ID"));
+		StartupData.init(companyJson);
 
 		Header.vpCompanies.clear();
 		Header.vpCompanies.add(new CompanyIcon(companyJson));
