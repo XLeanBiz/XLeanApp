@@ -7,7 +7,7 @@
 	<!-- Servlets -->
 	<servlet>
 		<servlet-name>topicsServlet</servlet-name>
-		<servlet-class>com.startupstages.server.topics.TopicsServiceImpl</servlet-class>
+		<servlet-class>com.startupstages.server.topics.TopicsReferencesServiceImpl</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
