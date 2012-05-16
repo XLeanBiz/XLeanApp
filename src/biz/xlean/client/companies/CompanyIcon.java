@@ -29,8 +29,7 @@ public class CompanyIcon extends HTML {
 			@Override
 			public void onClick(ClickEvent event) {
 
-				ChangeCompanyPanel popup = new ChangeCompanyPanel(
-						ListCompanies.companiesList);
+				ChangeCompanyPanel popup = new ChangeCompanyPanel();
 
 				popup.show();
 			}

@@ -1,53 +1,31 @@
 package biz.xlean.client.companies;
 
 import biz.xlean.client.header.Header;
-import co.uniqueid.authentication.client.utilities.ConvertJson;
+import co.uniqueid.authentication.client.UniqueIDGlobalVariables;
 
-import com.google.gwt.core.client.GWT;
 import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONObject;
-import com.google.gwt.json.client.JSONParser;
-import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.startupdata.client.StartupData;
 
 public class ListCompanies {
 
 	public static JSONArray companiesList = null;
+	
+	public static JSONArray permissionsList = null;
 
-	public static void list(final JSONObject uniqueIDJson) {
+	public static void list() {
 
-		String ID = ConvertJson.getStringValue(uniqueIDJson, "ID");
+		companiesList = UniqueIDGlobalVariables.uniqueID.get("FoundedInfo")
+				.isArray();
+		
+		permissionsList = UniqueIDGlobalVariables.uniqueID.get("PermissionsInfo")
+				.isArray();
 
-		list(ID);
+		JSONObject companyJson = (JSONObject) companiesList.get(0);
+
+		StartupData.company = companyJson;
+
+		Header.vpCompanies.clear();
+		Header.vpCompanies.add(new CompanyIcon(companyJson));
 	}
-
-	public static void list(final String uniqueID) {
-
-		final UniqueIDServiceAsync uniqueIDService = GWT
-				.create(UniqueIDService.class);
-
-		uniqueIDService.listFounded(uniqueID, new AsyncCallback<String>() {
-
-			public void onFailure(final Throwable caught) {
-				System.out.println(caught);
-			}
-
-			public void onSuccess(final String jsonResults) {
-
-				JSONArray jsonArray = (JSONArray) JSONParser
-						.parseStrict(jsonResults);
-
-				companiesList = jsonArray;
-
-				JSONObject companyJson = (JSONObject) jsonArray.get(0);
-
-				StartupData.company = companyJson;
-
-				Header.vpCompanies.clear();
-				Header.vpCompanies.add(new CompanyIcon(companyJson));
-
-			}
-		});
-	}
-
 }

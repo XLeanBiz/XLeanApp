@@ -1,6 +1,7 @@
 package biz.xlean.client.companies.change;
 
-import com.google.gwt.json.client.JSONArray;
+import biz.xlean.client.companies.ListCompanies;
+
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.Label;
@@ -9,7 +10,7 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 
 public class ChangeCompanyPanel extends PopupPanel {
 
-	public ChangeCompanyPanel(final JSONArray companiesList) {
+	public ChangeCompanyPanel() {
 
 		// this.center();
 		this.setAutoHideEnabled(true);
@@ -28,22 +29,36 @@ public class ChangeCompanyPanel extends PopupPanel {
 		vp.setSpacing(10);
 		vp.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
 
-		vp.add(showCompanies(companiesList, this));
+		vp.add(showCompanies(this));
 
 		this.setWidget(vp);
 
 	}
 
-	private VerticalPanel showCompanies(final JSONArray companiesList,
-			final PopupPanel popup) {
+	private VerticalPanel showCompanies(final PopupPanel popup) {
 
 		VerticalPanel vp = new VerticalPanel();
 
-		for (int i = 0; i < companiesList.size(); i++) {
+		if (ListCompanies.companiesList != null) {
 
-			JSONObject companyJson = (JSONObject) companiesList.get(i);
+			for (int i = 0; i < ListCompanies.companiesList.size(); i++) {
 
-			vp.add(new CompanyLogo(companyJson, popup));
+				JSONObject companyJson = (JSONObject) ListCompanies.companiesList
+						.get(i);
+
+				vp.add(new CompanyLogo(companyJson, popup));
+			}
+		}
+
+		if (ListCompanies.permissionsList != null) {
+
+			for (int i = 0; i < ListCompanies.permissionsList.size(); i++) {
+
+				JSONObject companyJson = (JSONObject) ListCompanies.permissionsList
+						.get(i);
+
+				vp.add(new CompanyLogo(companyJson, popup));
+			}
 		}
 
 		return vp;

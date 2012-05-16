@@ -1,8 +1,7 @@
 package biz.xlean.client;
 
-import biz.xlean.client.companies.ListCompanies;
 import biz.xlean.client.utilities.UseTracking;
-import co.uniqueid.authentication.client.UniqueIDGlobalVariables;
+import co.uniqueid.authentication.client.utilities.ConvertJson;
 import co.uniqueid.authentication.client.utilities.EncryptText;
 
 import com.google.gwt.core.client.EntryPoint;
@@ -28,7 +27,7 @@ public class GWTEntryPoint implements EntryPoint {
 		String uniqueIDJsonString = EncryptText.decrypt(Cookies
 				.getCookie("UniqueID"));
 
-		//uniqueIDJsonString = userTest();
+		uniqueIDJsonString = userTest();
 		// logger.log(Level.INFO, "uniqueIDJsonString=" + uniqueIDJsonString);
 
 		final String topic = Location.getParameter("topic");
@@ -54,11 +53,9 @@ public class GWTEntryPoint implements EntryPoint {
 			JSONObject obj = (JSONObject) JSONParser
 					.parseStrict(uniqueIDJsonString);
 
-			UniqueIDGlobalVariables.uniqueID = obj;
+			String ID = ConvertJson.getStringValue(obj, "ID");
 
-			new InitializeXLeanBiz(false, topic);
-
-			ListCompanies.list(obj);
+			GetUser.get(ID, topic);
 		}
 
 	}
@@ -72,6 +69,5 @@ public class GWTEntryPoint implements EntryPoint {
 				+ "\"email\":\"alline.oliveira@gmail.com\","
 				+ "\"gender\":\"female\"," + "\"facebook_id\":\"537675235\","
 				+ "\"githubLogin\":\"allineo\"}";
-
 	}
 }

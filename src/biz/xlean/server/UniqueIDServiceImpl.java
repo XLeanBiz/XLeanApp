@@ -10,13 +10,13 @@ public class UniqueIDServiceImpl extends RemoteServiceServlet implements
 
 	private static final long serialVersionUID = -8355612980477933670L;
 
-	private static String listFoundedUrl = "https://api.unoidme.appspot.com/ListFoundedService";
+	private static String getUniqueIDUrl = "https://api.unoidme.appspot.com/GetUniqueIDService";
 
-	public String listFounded(final String uniqueID) {
+	public String getUniqueID(final String uniqueID) {
 
 		String parameters = "UniqueID=" + uniqueID;
 
-		final String jsonString = URLUtilities.fetchURLPost(listFoundedUrl,
+		final String jsonString = URLUtilities.fetchURLPost(getUniqueIDUrl,
 				parameters);
 
 		return jsonString;

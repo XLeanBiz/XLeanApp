@@ -8,7 +8,7 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
  */
 @RemoteServiceRelativePath("uniqueID_API")
 public interface UniqueIDService extends RemoteService {
-
-	String listFounded(final String uniqueID);
+	
+	String getUniqueID(final String unoUserID);
 
 }
