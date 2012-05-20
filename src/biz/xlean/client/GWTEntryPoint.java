@@ -27,7 +27,7 @@ public class GWTEntryPoint implements EntryPoint {
 		String uniqueIDJsonString = EncryptText.decrypt(Cookies
 				.getCookie("UniqueID"));
 
-		uniqueIDJsonString = userTest();
+		//uniqueIDJsonString = userTest();
 		// logger.log(Level.INFO, "uniqueIDJsonString=" + uniqueIDJsonString);
 
 		final String topic = Location.getParameter("topic");
