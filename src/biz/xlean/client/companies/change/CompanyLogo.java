@@ -1,6 +1,6 @@
 package biz.xlean.client.companies.change;
 
-import biz.xlean.client.companies.CompanyIcon;
+import biz.xlean.client.companies.GetCompany;
 import co.uniqueid.authentication.client.utilities.ConvertJson;
 
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -23,7 +23,8 @@ public class CompanyLogo extends HorizontalPanel {
 			@Override
 			public void onClick(ClickEvent event) {
 
-				CompanyIcon.chooseCompany(companyJson);
+				String ID = ConvertJson.getStringValue(companyJson, "ID");
+				GetCompany.get(ID, true);
 
 				popup.hide();
 			}
