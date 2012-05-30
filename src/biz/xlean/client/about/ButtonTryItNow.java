@@ -18,7 +18,7 @@ public class ButtonTryItNow extends HTML {
 				new UseTracking(
 						"biz.xlean.client.about.AboutXLean#TryItNowButton");
 
-				InitializeXLeanBiz.openBlog(null);
+				InitializeXLeanBiz.openBlog(null, null, null);
 			}
 		});
 

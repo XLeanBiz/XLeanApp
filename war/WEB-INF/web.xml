@@ -45,17 +45,6 @@
 		<url-pattern>/xleanbiz/uniqueID</url-pattern>
 	</servlet-mapping>
 
-
-	<servlet>
-		<servlet-name>uniqueIDAPIServlet</servlet-name>
-		<servlet-class>biz.xlean.server.UniqueIDServiceImpl</servlet-class>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>uniqueIDAPIServlet</servlet-name>
-		<url-pattern>/xleanbiz/uniqueID_API</url-pattern>
-	</servlet-mapping>
-
 	<servlet>
 		<servlet-name>startupDataServlet</servlet-name>
 		<servlet-class>com.startupdata.server.startupdb.StartupDataServiceImpl</servlet-class>
@@ -65,14 +54,14 @@
 		<servlet-name>startupDataServlet</servlet-name>
 		<url-pattern>/xleanbiz/startupData</url-pattern>
 	</servlet-mapping>
-
+	
 	<servlet>
-		<servlet-name>interviewsDataServlet</servlet-name>
-		<servlet-class>com.startupdata.server.interviewsdb.InterviewsDatabaseServiceImpl</servlet-class>
+		<servlet-name>CustDevFrameworkServlet</servlet-name>
+		<servlet-class>com.startupdata.server.custdevframework.CustDevFrameworkServiceImpl</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>interviewsDataServlet</servlet-name>
-		<url-pattern>/xleanbiz/interviewsData</url-pattern>
+		<servlet-name>CustDevFrameworkServlet</servlet-name>
+		<url-pattern>/xleanbiz/custdevframework</url-pattern>
 	</servlet-mapping>
 
 	<!-- Default page to serve -->
